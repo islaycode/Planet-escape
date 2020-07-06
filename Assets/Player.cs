@@ -7,12 +7,13 @@ using UnityStandardAssets.CrossPlatformInput; // For using cross platform input 
 public class Player : MonoBehaviour {
 
     [Tooltip("In m^-1")][SerializeField] float speed = 10f; // Multiply this for increasing speed of senstivity 
-    [Tooltip("In m")] [SerializeField] float xRange = 3f;
-    [Tooltip("In m")] [SerializeField] float yRange = 3f;
-    [SerializeField] float positionPitch = -15;
-    [SerializeField] float controlPitch = -30f;
-    [SerializeField] float positionYaw = -10f;
-    [SerializeField] float YawPitch = -5f;
+    [Tooltip("In m")] [SerializeField] float xRange = 3f; // The amount of movement ship can take on X-axis
+    [Tooltip("In m")] [SerializeField] float yRange = 3f; // The amount of movement ship can take on Y-axis
+    [SerializeField] float positionPitch = -5; // Thew nose movement of ship up/down
+    [SerializeField] float controlPitch = -30f; // Controlling the nose movement of ship
+    [SerializeField] float positionYaw = -10f; //  The main rotation of the ship on Y-axis 
+    [SerializeField] float YawPitch = -5f; // For align movement when ship tilt left or right
+    [SerializeField] float controlRoll = -10f; // The amount of roll a ship can take while flying
     float xThrow, yThrow;
 
     // Use this for initialization
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour {
     {
         float pitch = transform.localPosition.y * positionPitch + yThrow *controlPitch;
         float yaw = transform.localPosition.x *positionYaw + xThrow *YawPitch ;
-        float roll = 0;
+        float roll = xThrow * controlRoll ;
         transform.localRotation = Quaternion.Euler(pitch,yaw,roll); 
     }
 
