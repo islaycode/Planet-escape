@@ -6,31 +6,40 @@ using UnityStandardAssets.CrossPlatformInput; // For using cross platform input 
 
 public class Player : MonoBehaviour {
 
+    [Header("General")]  // It is header for Serialize fields in Inspector window
     [Tooltip("In m^-1")][SerializeField] float speed = 10f; // Multiply this for increasing speed of senstivity 
     [Tooltip("In m")] [SerializeField] float xRange = 3f; // The amount of movement ship can take on X-axis
     [Tooltip("In m")] [SerializeField] float yRange = 3f; // The amount of movement ship can take on Y-axis
+
+    [Header("Ship Movement")]
     [SerializeField] float positionPitch = -5; // Thew nose movement of ship up/down
-    [SerializeField] float controlPitch = -30f; // Controlling the nose movement of ship
+    
     [SerializeField] float positionYaw = -10f; //  The main rotation of the ship on Y-axis 
     [SerializeField] float YawPitch = -5f; // For align movement when ship tilt left or right
+
+    [Header("Control Throw")]
+    [SerializeField] float controlPitch = -30f; // Controlling the nose movement of ship
     [SerializeField] float controlRoll = -10f; // The amount of roll a ship can take while flying
+
+    bool isControlEnabled = true;
     float xThrow, yThrow;
 
-    // Use this for initialization
-    void Start () {
-		
-	}	
 	// Update is called once per frame
 	void Update ()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        if (isControlEnabled)
+        {
+            ProcessTranslation();
+            ProcessRotation();
+        }
+    }
 
-    }
-    void OnTriggerEnter(Collider other)
+    void OnPlayerDeath() // called by string reference 
     {
-        print("Player Triggered with something");
+        print("Controlls frozen");
+        isControlEnabled = false;
     }
+
     private void ProcessRotation()
     {
         float pitch = transform.localPosition.y * positionPitch + yThrow *controlPitch;

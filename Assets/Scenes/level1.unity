@@ -4626,7 +4626,8 @@ Prefab:
       propertyPath: yRange
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114203470925165426, guid: 48c12e238cd8a7d489d4c6ad1c7e122b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 48c12e238cd8a7d489d4c6ad1c7e122b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1010954988
@@ -5431,20 +5432,33 @@ GameObject:
   m_PrefabParentObject: {fileID: 1226516426617000, guid: 48c12e238cd8a7d489d4c6ad1c7e122b,
     type: 2}
   m_PrefabInternal: {fileID: 1003245065}
---- !u!95 &2121962299
-Animator:
-  serializedVersion: 3
+--- !u!114 &2121962293
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2121962292}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab745a8cdf2285e45a6d5cfe709ff796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 9
+  xRange: 9
+  yRange: 9
+  positionPitch: -5
+  controlPitch: -30
+  positionYaw: 4
+  YawPitch: -5
+  controlRoll: -50
+--- !u!114 &2121962298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2121962292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92942f670d0cddb4ebeafd60ee180ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
