@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
     [SerializeField] float controlPitch = -30f; // Controlling the nose movement of ship
     [SerializeField] float controlRoll = -10f; // The amount of roll a ship can take while flying
 
-    bool isControlEnabled = true;
+    bool isControlEnabled = true; // Controll Enable/Disable
     float xThrow, yThrow;
 
 	// Update is called once per frame
