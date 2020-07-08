@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Enemey : MonoBehaviour {
 
+    [SerializeField] GameObject deathFx;
+    [SerializeField] Transform parent; // 
 	// Use this for initialization
 	void Start () {
 
@@ -13,7 +15,8 @@ public class Enemey : MonoBehaviour {
     }
     void OnParticleCollision(GameObject other)
     {
-        print("Particles collided with enemey" + gameObject.name);
+        GameObject fx = Instantiate(deathFx, transform.position, Quaternion.identity);
+        fx.transform.parent = parent;
         Destroy(gameObject); // To destroy the gameObject in game i.e Enemey ship. 
     }
 }
