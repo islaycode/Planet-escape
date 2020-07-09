@@ -8,6 +8,7 @@ public class Enemey : MonoBehaviour {
     [SerializeField] GameObject deathFx;
     [SerializeField] Transform parent; 
     [SerializeField] int scorePerHit = 12;
+    [SerializeField] int HealthPoints = 100;
     ScoreBoard scoreboard; //Creating Reference for the score board
 
 	// Use this for initialization

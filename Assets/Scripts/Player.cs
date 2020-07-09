@@ -21,6 +21,8 @@ public class Player : MonoBehaviour {
     [SerializeField] float controlPitch = -30f; // Controlling the nose movement of ship
     [SerializeField] float controlRoll = -10f; // The amount of roll a ship can take while flying
 
+    [SerializeField] GameObject[] guns;
+
     bool isControlEnabled = true; // Controll Enable/Disable
     float xThrow, yThrow;
 
@@ -31,6 +33,35 @@ public class Player : MonoBehaviour {
         {
             ProcessTranslation();
             ProcessRotation();
+            ProcessFiring();
+        }
+    }
+
+    void ProcessFiring()
+    {
+        if (CrossPlatformInputManager.GetButton("Fire"))
+        {
+            ActivateGuns();
+        }
+        else
+        {
+            DeactivateGuns();
+        }
+    }
+
+    private void DeactivateGuns()
+    {
+        foreach(GameObject gun in guns)
+        {
+            gun.SetActive(false);
+        }
+    }
+
+    private void ActivateGuns()
+    {
+        foreach(GameObject gun in guns)
+        {
+            gun.SetActive(true);
         }
     }
 
