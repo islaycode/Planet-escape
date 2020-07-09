@@ -26,7 +26,22 @@ public class Enemey : MonoBehaviour {
 
     void OnParticleCollision(GameObject other)
     {
+        ProcessHit();
+        if (HealthPoints < 0)
+        {
+            KillEnemy();
+        }
+
+    }
+
+    private void ProcessHit()
+    {
         scoreboard.scoreHit(scorePerHit); // It will access the method we created in scoreboard and hence will increase the score by 12
+        HealthPoints = HealthPoints - 40;
+    }
+
+    private void KillEnemy()
+    {
         GameObject fx = Instantiate(deathFx, transform.position, Quaternion.identity);
         fx.transform.parent = parent;
         Destroy(gameObject); // To destroy the gameObject in game i.e Enemey ship. 
