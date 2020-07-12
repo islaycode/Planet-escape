@@ -42,7 +42,7 @@ public class Player : MonoBehaviour {
         if (CrossPlatformInputManager.GetButton("Fire"))
         {
             SetGunsActive(true);
-        }
+        } 
         else
         {
             SetGunsActive(false);
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour {
     {
         foreach(GameObject gun in guns)
         {
-            gun.SetActive(true);
+            var emissionModule = gun.GetComponent<ParticleSystem>().emission;
         }
     }
 
