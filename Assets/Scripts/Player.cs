@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
 
     void ProcessFiring()
     {
-        if (CrossPlatformInputManager.GetButton("Fire"))
+        if (CrossPlatformInputManager.GetButton("Fire")) 
         {
             SetGunsActive(true);
         } 
@@ -49,13 +49,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-  
-
     private void SetGunsActive(bool isActive)
     {
         foreach(GameObject gun in guns)
         {
             var emissionModule = gun.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = isActive; 
         }
     }
 
